@@ -42,13 +42,61 @@ __END__
 
 =head1 SYNOPSIS
 
-    $ yoyo.pl 
-    
+  Usage: yoyo.pl 
+         yoyo.pl --dump  
+
+  * When yoyo.pl is carried out, prompt starts.
+
+  Yo-yo> 
+ 
+
 =head1 DESCRIPTION
 
-#####
+The prompt which refers to a command result to each host.
 
-=head1 AUTHORS
+=head1 OPTIONS
+
+=over 1 
+
+=item --dump
+
+It's possible to extract a command result in a designation file.
+
+=back
+
+=head1 EXAMPLE
+
+You can refer to the kind of commands possible by the help command. 
+
+    Yo-yo> help
+
+
+The present module setting is confirmed.
+
+    Yo-yo> show config
+
+
+The present module setting is changed.
+
+    Yo-yo> set config hosts=hostname1;hostname2
+
+    Yo-yo> set config perlmod=HTML::Template;Class::Accessor::Fast
+
+
+The following command should be carried out to confirm the host's setting.
+
+    Yo-yo> disk_size
+
+    Yo-yo> memory_size
+
+    Yo-yo> load_avg
+
+    Yo-yo> perlmod 
+
+    Yo-yo> grep
+
+
+head1 AUTHORS
 
 kazuhiko yamakura E<lt>yamakura@cpan.orgE<gt>
 

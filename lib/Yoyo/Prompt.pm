@@ -56,7 +56,7 @@ sub command {
     $args->{command} = $command;
 
     my $yoyo   = Yoyo->new();
-    my $result = $yoyo->command($args);
+    my $result = $yoyo->execute_command($args);
 
     my $result_str = "\n<<$args->{command} command result>>\n";
     foreach my $host ( keys %$result ) {
@@ -99,12 +99,19 @@ sub show_help {
 
     my $help_string = '';
     $help_string .= "\n========================================\n";
-    $help_string .= "<Yo-yo Help menu>\n";
-    $help_string .= "\n(Command)\t\t: (Meaning)\n";
-    $help_string .= "show config\t\t: show this module setting\n";
-    $help_string .= "set config ( option )\t: fix this module setting\n";
-    $help_string .= "( command )\t: show hosts setting\n";
-    $help_string .= "exit | quit\t\t: this module exit\n";
+    $help_string .= "<Yo-yo Help menu> \n";
+    $help_string .= "Usage : \n";
+    $help_string .= "disk_size\t: confirm disk size\n";
+    $help_string .= "memory_size\t: confirm memory size\n";
+    $help_string .= "load_avg\t: confirm load average\n";
+    $help_string .= "perlmod\t\t: confirm perl module version.\n\n";
+    $help_string .= "show config\t: The setting is confirmed.\n\n";
+    $help_string .= "set config hosts=(VALUE;)\t: set host names\n";
+    $help_string .= "set config perlmod=(VALUE;)\t: set perl module name\n";
+    $help_string .= "set config grep_target=(VALUE;)\t: set grep target file\n";
+    $help_string .= "set config grep_pattern=(VALUE;): set grep target pattern\n";
+    $help_string .= "set config dumpdir=(VALUE;)\t: set dump directory\n\n";
+    $help_string .= "exit | quit\t: this module exit\n";
 
     return $help_string;
 }

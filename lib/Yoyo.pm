@@ -7,9 +7,9 @@ use base qw( Class::Accessor::Fast );
 use POSIX qw( strftime );
 use Yoyo::Command;
 
-our $VERSION = '0.00001_00';
+our $VERSION = '0.00001_01';
 
-sub command {
+sub execute_command {
     my $self   = shift;
     my $params = shift;
 
@@ -32,6 +32,7 @@ sub _look_datetime {
     return strftime( "%Y-%m-%d %H:%M:%S", localtime() );
 }
 
+
 1;
 __END__
 
@@ -44,9 +45,9 @@ Yoyo - It is a tool that confirms the command result to various hosts connected 
   package MyPackage;
   use Yoyo;
 
-  my $cmd = Yoyo->new();
+  my $yoyo = Yoyo->new();
   my $args = {
-    type => 'disk_size',
+    command => 'disk_size',
     target => {
         hosts => ['host1', 'host2' ],
         perlmod => [ 'strict', 'warnings' ]
@@ -63,11 +64,11 @@ Yoyo is a tool that confirms the command result to various hosts connected with 
   memory_size
   load_avg
   grep
-  perlmod_ver
+  perlmod
 
 =head1 METHODS
 
-=head2 command
+=head2 execute_command
 
 =head1 AUTHOR
 
